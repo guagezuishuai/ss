@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制相交线段</title>
+</head>
+
+<body>
+  <!-- 
+    canvas绘制图形的基本步骤大概有:
+      1.在html中添加画布元素
+      2.通过js获取画布元素
+      3.获得画笔(上下文)
+   -->
+
+  <!-- 1.在html中添加画布元素 -->
+  <canvas></canvas>
+
+  <script>
+    //   2.通过js获取画布元素
+    var canvas = document.querySelector('canvas');
+    // 2.1 设置画布的大小及边框
+    canvas.width = 600;
+    canvas.height = 300;
+    canvas.style.border = '1px solid #ff0000';
+    //   3.获取画笔(上下文)
+    var context = canvas.getContext('2d');// 这是画二维图形的画笔
+
+    // 4.绘制第一个
+
+    context.lineWidth = 10;
+    context.strokeStyle = 'red';
+    context.lineJoin = 'miter';
+    context.moveTo(230,50);
+    context.lineTo(250,70);
+    context.lineTo(270,50);
+    context.stroke();
+
+
+    context.beginPath();
+    context.strokeStyle = 'green';
+    context.lineJoin = 'round';
+    context.moveTo(230,70);
+    context.lineTo(250,90);
+    context.lineTo(270,70);
+    context.stroke();
+
+
+    context.beginPath();
+    context.strokeStyle = 'blue';
+    context.lineJoin = 'bevel';
+    context.moveTo(230,90);
+    context.lineTo(250,110);
+    context.lineTo(270,90);
+    context.stroke();
+        
+  </script>
+</body>
+
+</html>

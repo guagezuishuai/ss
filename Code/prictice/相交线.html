@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相交线</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ff0000';
+
+        var context = canvas.getContext('2d');
+        context.beginPath();
+        context.lineWidth = 10;
+        context.strokeStyle = 'red';
+        context.moveTo(100,100);
+        context.lineTo(130,130);
+        context.lineTo(160,100);
+        context.lineCap = 'round';
+        context.stroke();
+
+
+        context.beginPath();
+        context.lineWidth = 10;
+        context.strokeStyle = 'yellow';
+        context.moveTo(100,130);
+        context.lineTo(130,160);
+        context.lineTo(160,130);
+        context.lineCap = 'round';
+        context.stroke();
+
+
+        context.beginPath();
+        context.lineWidth = 10;
+        context.strokeStyle = 'blue';
+        context.moveTo(100,160);
+        context.lineTo(130,190);
+        context.lineTo(160,160);
+        context.lineCap = 'round';
+        context.stroke();
+    </script>
+</body>
+</html>

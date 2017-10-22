@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制多个正方形(beginPath)</title>
+</head>
+
+<body>
+  <!-- 
+    canvas绘制图形的基本步骤大概有:
+      1.在html中添加画布元素
+      2.通过js获取画布元素
+      3.获得画笔(上下文)
+   -->
+
+  <!-- 1.在html中添加画布元素 -->
+  <canvas></canvas>
+
+  <script>
+    //   2.通过js获取画布元素
+    var canvas = document.querySelector('canvas');
+    // 2.1 设置画布的大小及边框
+    canvas.width = 600;
+    canvas.height = 300;
+    canvas.style.border = '1px solid #ff0000';
+    //   3.获取画笔(上下文)
+    var context = canvas.getContext('2d');// 这是画二维图形的画笔
+
+    //  4.绘制第一个正方形
+    context.moveTo(100,100);
+    context.lineTo(200,100);
+    context.lineTo(200,200);
+    context.lineTo(100,200);
+    context.lineTo(100,100);
+    context.stroke();
+
+
+    context.beginPath();
+    context.moveTo(250,100);
+    context.lineTo(350,100);
+    context.lineTo(350,200);
+    context.lineTo(250,200);
+    context.lineTo(250,100);
+    context.fill();
+    
+        
+  </script>
+</body>
+
+</html>

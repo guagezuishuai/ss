@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas绘制镂空正方形</title>
+</head>
+<body>
+  <img src="./image/feilinghuanraoyuanze.png" alt="">
+  <canvas>
+    您的浏览器版本不支持canvas,请升级!!
+  </canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 绘制大矩形 600 300  200 100    400 100
+    context.moveTo(100,50);
+    context.lineTo(500,50);
+    context.lineTo(500,250);
+    context.lineTo(100,250);
+    context.lineTo(100,50);
+    // 绘制小矩形
+
+    context.moveTo(200,100);
+    context.lineTo(400,100);
+    context.lineTo(400,200);
+    context.lineTo(200,200);
+    context.lineTo(200,100);
+
+
+    // context.stroke();
+    context.fill();
+  
+  </script>
+</body>
+</html>

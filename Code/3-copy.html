@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制的基本步骤</title>
+</head>
+
+<body>
+  <!-- 1.准备一张纸(添加canvas标签) -->
+  <canvas></canvas>
+
+  <script>
+    // 2.获取纸(获取canvas元素)
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ff0000';
+    // 3.准备画笔
+    // var context  = canvas.getContext('2d');// 给我们准备一个画2d的图像的画笔
+    
+    // console.log(context);//CanvasRenderingContext2D
+
+    var webgl = canvas.getContext('webgl');// 给我们准备一个画3d的图像的画笔 --- three.js
+
+      console.log(webgl);//WebGLRenderingContext
+
+
+  </script>
+</body>
+
+</html>

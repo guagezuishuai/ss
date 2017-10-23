@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制n等份圆</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height= 400;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 画横线
+    context.beginPath();
+    context.moveTo(0,canvas.height/2);
+    context.lineTo(canvas.width,canvas.height/2);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(canvas.width/2,0);
+    context.lineTo(canvas.width/2,canvas.height);
+    context.stroke();
+
+    // 使用画圆(0-360(2PI)的圆弧)的方法  来画圆弧
+    // 
+    // context.arc(圆的圆心X,Y坐标，半径，开始角度，结束角度)
+//  30deg - 60deg
+    
+    // 1.要把圆要分成180份
+    // 2.获取随机颜色
+    // 3.设置一个定时器
+
+
+
+    // 步骤:
+    // 1.获取随机颜色
+    function getRandomColor(){
+      var r = Math.floor(Math.random() *  256);
+      var g = Math.floor(Math.random() *  256);
+      var b = Math.floor(Math.random() *  256);
+
+      return 'rgb('+r+','+g+','+b+')';
+    }
+
+    // console.log(getRandomColor());
+
+    // 2. 设置分成的分数
+    var n = 180;
+
+    // 3.设置一个定时器
+    setInterval(function(){
+      // 4. 绘制圆弧
+      var startAngle = 0;//开始的度数
+      for(var i = 0 ;i< n; i++){
+        context.beginPath();
+        context.moveTo(canvas.width/2,canvas.height/2);
+        context.arc(canvas.width/2,canvas.height/2,150,startAngle, startAngle + 2*Math.PI/n);
+        context.closePath();
+        context.fillStyle = getRandomColor();
+        context.fill();
+        startAngle = startAngle +  2*Math.PI/n;
+      }
+    },100)
+  </script>
+</body>
+</html>

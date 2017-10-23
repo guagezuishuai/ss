@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制圆</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+
+
+
+    // 转换
+
+    // 平移 translate
+
+    // context.translate(100,0);
+    // translate()不能写一个数字
+    // context.translate(100);
+
+
+    // 旋转 rotate //写弧度
+    // context.rotate(30*Math.PI/180);
+
+    // 缩放 scale 必须有两个 写一个不行
+    // 缩放的不仅仅是图像的大小 还是图像的边框的粗细 还有坐标的放大两倍
+      // context.scale(2,2); 
+    // canvas绘图
+    // context.moveTo(canvas.width/2,canvas.height/2);
+    // context.arc(canvas.width/2,canvas.height/2,50,0,30*Math.PI/180);
+    // context.closePath();
+    context.moveTo(canvas.width/2,canvas.height/2);
+    context.strokeRect(canvas.width/2-50,canvas.height/2-25,100,50);
+
+    // context.stroke();
+
+  </script>
+</body>
+</html>

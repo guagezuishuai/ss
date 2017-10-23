@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制基本的饼图</title>
+</head>
+
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 用饼图表现班级的年龄分布图数据的可视化
+    //   15-20岁  12
+    //   20-25岁  40
+    //   25-30岁  22
+    //   30-35岁  10
+    //   35-50岁  14
+
+    // 依赖数据
+    var data = [12, 40, 22, 10, 14];
+
+    // 获取随机颜色
+    var getRandomColor = function () {
+      var r = Math.floor(Math.random() * 256);
+      var g = Math.floor(Math.random() * 256);
+      var b = Math.floor(Math.random() * 256);
+
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+
+    // 获取总和
+    var sum = 0;
+    data.forEach(function(item){
+      sum += item;
+    })
+    // console.log(sum);
+
+    var startAngle = 0;
+
+    data.forEach(function(item,i){
+      context.beginPath();
+      context.moveTo(canvas.width/2,canvas.height/2);
+      context.arc(canvas.width/2,canvas.height/2,150,startAngle,startAngle+(item/sum*2*Math.PI));
+      context.closePath();
+      context.fillStyle = getRandomColor();
+      context.fill();
+
+      startAngle = startAngle+(item/sum*2*Math.PI)
+    })
+
+    
+  </script>
+</body>
+
+</html>

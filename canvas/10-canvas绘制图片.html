@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制圆弧</title>
+</head>
+
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+
+    var img = new Image();
+
+    img.src = './images/sofa.png';
+
+    img.onload = function () {
+      // context.drawImage(img, 100, 0);
+
+      // context.drawImage( img, dx, dy, dWidth, dHeight )
+
+      // context.drawImage(img,40,40,100,200);
+
+      // context.drawImage( img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight )
+      context.drawImage(img,50,10,30,30,0,0,60,40);
+    }
+
+
+  </script>
+</body>
+
+</html>

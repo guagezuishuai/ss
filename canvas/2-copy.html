@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制圆弧</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height= 400;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 画横线
+    context.beginPath();
+    context.moveTo(0,canvas.height/2);
+    context.lineTo(canvas.width,canvas.height/2);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(canvas.width/2,0);
+    context.lineTo(canvas.width/2,canvas.height);
+    context.stroke();
+
+    // 使用画圆(0-360(2PI)的圆弧)的方法  来画圆弧
+    // 
+    // context.arc(圆的圆心X,Y坐标，半径，开始角度，结束角度)
+//  30deg - 60deg
+    context.beginPath();
+    context.arc(canvas.width/2,canvas.height/2,150,30*Math.PI/180,60*Math.PI/180);
+    context.stroke();
+  </script>
+</body>
+</html>

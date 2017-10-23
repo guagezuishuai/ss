@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折线图</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+</head>
+<body>
+<canvas></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = "1px solid #ff0000";
+
+    var context = canvas.getContext('2d');
+   // context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+    //x 圆的中心坐标x
+    //y 圆的中心坐标y
+    //r 圆的半径
+    //sAngle  起始角，以弧度计算（弧的圆形的三点钟位置是 0 度）。
+    //eAngle  结束角，以弧度计。
+    //counterclockwise 可选。规定应该逆时针还是顺时针绘图。
+    // false = 顺时针，true = 逆时针。
+    context.moveTo(canvas.width/2,canvas.height/2);
+    context.lineTo(canvas.width/2 + 150,canvas.height/2)
+    context.arc(canvas.width/2,canvas.height/2,150,0 * Math.PI/180, 60 * Math.PI/180);
+    context.closePath();
+    context.fillStyle = "green";
+    context.fill();
+    context.stroke();
+</script>
+</body>
+</html>

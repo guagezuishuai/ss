@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制折线图</title>
+</head>
+
+<body>
+  <canvas></canvas>
+
+  <script>
+    // 准备数据
+    var data = [
+      { x: 100, y: 100 },
+      { x: 200, y: 120 },
+      { x: 300, y: 180 },
+      { x: 400, y: 300 },
+      { x: 500, y: 140 }
+    ]
+
+    // 设置画布
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid #ff0000';
+    // 构建对象
+    var LineChart = function () {
+      // 1.获取画笔
+      this.context = canvas.getContext('2d');
+      // 2.获取画布尺寸
+      this.width = canvas.width;
+      this.height = canvas.height;
+      // 3.设置坐标系的间距
+      this.space = 20;
+      // 4.设置原点坐标
+      this.zeroX = this.space;
+      this.zeroY = this.height - this.space;
+      // 5.箭头大小
+      this.arrow = 10;
+      // 6.点大小
+      this.edge = 8;
+    }
+    // 给对象添加各种方法
+
+    // 1.给对象linechart添加初始化方法
+    LineChart.prototype.init = function (data) {
+      // 绘制坐标
+      this.drawAxis();
+      // 绘制点
+      this.drawDots(data);
+    }
+
+
+
+    // 2.给对象LineChart 添加绘制坐标的方法
+    LineChart.prototype.drawAxis = function () {
+
+      // 绘制X轴
+      this.context.beginPath();
+      this.context.moveTo(this.zeroX, this.zeroY);
+      this.context.lineTo(this.width - this.space, this.zeroY);
+      this.context.lineTo(this.width - this.space - this.arrow, this.height - this.space - this.arrow / 2);
+      this.context.lineTo(this.width - this.space - this.arrow, this.height - this.space + this.arrow / 2);
+      this.context.lineTo(this.width - this.space, this.zeroY);
+      this.context.stroke();
+      this.context.fill();
+
+
+      // 绘制Y轴
+      this.context.beginPath();
+      this.context.moveTo(this.zeroX, this.zeroY);
+      this.context.lineTo(this.zeroX, this.space);
+      this.context.lineTo(this.space - this.arrow / 2, this.space + this.arrow);
+      this.context.lineTo(this.space + this.arrow / 2, this.space + this.arrow);
+      this.context.lineTo(this.zeroX, this.space);
+      this.context.stroke();
+      this.context.fill();
+    }
+
+    // 3.给对象LineChart 添加转换坐标的方法
+    LineChart.prototype.transform = function (data) {
+      var _this = this;
+
+      var canvasData = [];
+      data.forEach(function (item, i) {
+        canvasData.push({
+          x: _this.zeroX + item.x,
+          y: _this.zeroY - item.y
+        })
+      });
+    
+      return canvasData;
+    }
+
+    // 4.给对象LineChart 添加绘制单个点的方法
+    // dotted是坐标
+    LineChart.prototype.drawDot = function (dotted) {
+      this.context.beginPath();
+      this.context.moveTo(dotted.x - this.edge / 2, dotted.y - this.edge / 2);
+      this.context.lineTo(dotted.x + this.edge / 2, dotted.y - this.edge / 2);
+      this.context.lineTo(dotted.x + this.edge / 2, dotted.y + this.edge / 2);
+      this.context.lineTo(dotted.x - this.edge / 2, dotted.y + this.edge / 2);
+      this.context.closePath();
+      this.context.fill();
+    }
+
+    // 5.绘制线
+    LineChart.prototype.drawLine = function (mx, my, lx, ly) {
+      this.context.beginPath();
+      this.context.moveTo(mx, my);
+      this.context.lineTo(lx, ly);
+      this.context.stroke();
+    }
+
+    // 5.绘制多个点
+    LineChart.prototype.drawDots = function (data) {
+      var _this = this;
+
+      var canvasData = this.transform(data);
+      console.log(data);
+      canvasData.forEach(function (item, i) {
+        _this.drawDot(item);
+
+        // 绘制线
+        if (i == 0) {
+          _this.drawLine(_this.zeroX, _this.zeroY, item.x, item.y);
+        } else {
+          _this.drawLine(canvasData[i - 1].x, canvasData[i - 1].y, item.x, item.y);
+        }
+      })
+    }
+
+    new LineChart().init(data);
+  </script>
+</body>
+
+</html>

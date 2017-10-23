@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制一个n等份圆</title>
+</head>
+
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 确定等份数
+    var n = 180;
+
+    var getRandomColor = function () {
+      var r = Math.floor(Math.random() * 256);
+      var g = Math.floor(Math.random() * 256);
+      var b = Math.floor(Math.random() * 256);
+
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    setInterval(function () {
+      var startAngle = 0;
+
+      for (var i = 0; i < n; i++) {
+        context.beginPath();
+        context.moveTo(canvas.width / 2, canvas.height / 2);
+        context.arc(canvas.width / 2, canvas.height / 2, 150, startAngle, startAngle + 2 * Math.PI / n);
+        context.closePath();
+        context.fillStyle = getRandomColor();
+        context.fill();
+        startAngle = startAngle + 2 * Math.PI / n;
+      }
+    }, 100)
+
+  </script>
+</body>
+
+</html>

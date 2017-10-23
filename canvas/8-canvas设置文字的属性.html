@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas设置文字的属性</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    var text = '锄禾日当午';
+
+      // 给文字设置大小
+      context.font = '40px Microsoft YaHei'
+
+      // 字体位置
+      // context.textAlign = 'left';
+      // context.textAlign = 'right';//以右边为基准点绘制
+      // context.textAlign = 'center';//以中间作为基准点绘制
+      // context.textAlign = 'start';
+      // context.textAlign= 'end';
+
+      // 字体绘制基线
+      // context.textBaseline = 'top';
+      context.textBaseline = 'bottom';
+      // context.textBaseline ='middle';
+      // context.textBaseline = 'alphabetic';
+
+
+    // context.strokeText(text,canvas.width/3,canvas.height/2);
+    context.fillText(text,canvas.width/2,canvas.height/2);
+
+
+    context.beginPath();
+    context.moveTo(0,canvas.height/2);
+    context.lineTo(canvas.width,canvas.height/2);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(canvas.width/2,0);
+    context.lineTo(canvas.width/2,canvas.height);
+    context.stroke();
+
+
+  
+  </script>
+</body>
+</html>

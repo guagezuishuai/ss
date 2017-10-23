@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <canvas></canvas>
+
+  <script>
+    // 1.准备数据
+    var data = [
+      {
+        title: '15-20岁',
+        num: 12
+      },
+      {
+        title: '20-25岁',
+        num: 30
+      },
+      {
+        title: '25-30岁',
+        num: 22
+      },
+      {
+        title: '30-35岁',
+        num: 10
+      },
+      {
+        title: '35-100岁',
+        num: 12
+      },
+    ];
+
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 1.创建构造函数  使用面向对象的方式去绘制饼状图
+    var PiChart = function () {
+      // 获取canvas的宽度和高度
+      this.width = canvas.width;
+      this.height = canvas.height;
+      // 获取画笔
+      this.context = context;
+      // 设置圆心
+      this.zeroX = this.width / 2;
+      this.zeroY = this.height / 2;
+      // 设置半径
+      this.radius = 150;
+      // 设置延长线
+      this.outLine = 20;
+    }
+
+    // 2.创建获取随机颜色的方法
+    PiChart.prototype.getRandomColor = function () {
+
+      var r = Math.floor(Math.random() * 256);
+      var g = Math.floor(Math.random() * 256);
+      var b = Math.floor(Math.random() * 256);
+
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    // 3.创建角度转换的方法
+    PiChart.prototype.transformAngle = function (data) {
+      // 计算所有数据的总和
+      var total = 0;
+
+      data.forEach(function (item) {
+        total = total + item.num;
+      })
+
+      // 转换角度
+      // 声明一个临时数组
+      var canvasData = [];
+      // 遍历原始数据
+      data.forEach(function (item) {
+        canvasData.push({
+          title: item.title,
+          num: item.num,
+          angle: item.num / total * 2 * Math.PI
+        })
+      })
+
+      return canvasData;
+    }
+    // 4.创建画饼图的方法
+    PiChart.prototype.drawBing = function (data) {
+      var _this = this;
+      // 声明起始弧度
+      var startAngle = 0;
+      // 转换数据
+      var canvasData = this.transformAngle(data);
+      // 画饼图
+      canvasData.forEach(function (item, i) {
+        _this.context.beginPath();
+        _this.context.moveTo(_this.zeroX, _this.zeroY);
+        _this.context.arc(_this.zeroX, _this.zeroY, _this.radius, startAngle, startAngle + item.angle);
+        _this.context.closePath();
+        var color = _this.context.fillStyle = _this.getRandomColor();
+
+
+
+        _this.context.fill();
+        _this.drawDesc(color, i, item.title);
+        _this.drawTitle(color,item.title,startAngle,item.angle);
+        startAngle = startAngle + item.angle;
+      })
+
+    }
+
+    
+    // 5.创建画标识的方法(小矩形)
+    PiChart.prototype.drawDesc = function (color, index, title) {
+
+      this.context.beginPath();
+      this.context.rect(20,20+index*(16+10),30,16);
+      this.context.fillStyle = color;
+      this.context.fill();
+
+      this.context.beginPath();
+      this.context.fillText(title,20+30+10,20+index*(16+10)+12);
+      this.context.fillStyle = color;
+    }
+
+    // 6.创建画title的方法
+    PiChart.prototype.drawTitle = function(color,title,startAngle,angle){
+      // 获取延长线的长度
+      var edge = this.radius + this.outLine;
+
+      // 获取延长线X的长度
+      var edgeX = Math.cos(startAngle + angle/2)*edge;
+      var edgeY = Math.sin(startAngle + angle/2)*edge;
+      // 获取拐点的坐标
+
+      var outX = this.zeroX + edgeX;
+      var outY = this.zeroY + edgeY;
+
+      this.context.beginPath();
+      this.context.moveTo(this.zeroX,this.zeroY);
+      this.context.lineTo(outX,outY);
+      
+      // 获取字的宽度
+      var width = this.context.measureText(title).width;
+      if(outX > this.zeroX) {
+        // 右边
+        this.context.lineTo(outX+width,outY);
+        this.context.fillText(title,outX,outY-3);
+      }else {
+        // 左边
+        this.context.lineTo(outX-width,outY);
+        this.context.fillText(title,outX-width,outY-3);
+      }
+
+
+
+
+
+
+
+
+
+      this.context.strokeStyle = color;
+      this.context.stroke();
+
+    }
+
+    // 7.创建画饼状图的初始化方法
+    // new PiChart().drawBing(data);
+
+   PiChart.prototype.init = function(data) {
+     this.drawBing(data);
+   }
+
+   new PiChart().init(data);
+  </script>
+</body>
+
+</html>

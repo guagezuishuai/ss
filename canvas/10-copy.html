@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // img内置对象
+
+    var img  = new Image();
+
+    // 设置img的src属性
+    img.src = './images/sofa.png';
+
+    img.onload = function(){
+      // 把图片绘制到canvas中
+      // context.drawImage(img,100,0);
+
+      // 2. context.drawImage( img(图片), dx(图片左上角的X轴坐标), dy(图片左上角的Y轴的坐标), dWidth(绘制区域的宽度), dHeight(绘制区域的高度) )
+      // 20.4和19.8 就是图片的宽高 （如果不按比例写会变形）
+      // context.drawImage(img,10,10,100,50);
+
+      // 3.context.drawImage( img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight )
+      // img 就是实例
+      // sx 是剪切的左上角坐标x轴
+      // sy 是剪切区域左上角的y轴
+      // sWidth 是剪切区域的宽度
+      // sHeight 是剪切区域的高度
+      // dx 是剪切出的图片在canvas中的X轴坐标
+      // dY 是剪切出的图片在canvas中的Y轴的坐标
+      // dWidth 剪切出的图片在canvas中显示多宽
+      // dheight 剪切出的图片在canvas中显示多高
+
+      // context.drawImage(img,10,10,30,30,0,0,50,50);
+
+      // 拖拽上传
+      // 预览显示
+      // 可以用canvas去裁切
+      // 保存 传入后台
+    }
+  </script>
+</body>
+</html>

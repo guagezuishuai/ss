@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制圆弧</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height= 400;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    // 画横线
+    context.beginPath();
+    context.moveTo(0,canvas.height/2);
+    context.lineTo(canvas.width,canvas.height/2);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(canvas.width/2,0);
+    context.lineTo(canvas.width/2,canvas.height);
+    context.stroke();
+
+    // 绘制文字
+
+    // 填充文字
+    // context.fillText(文字的内容,文字左下角的X坐标，文字左下角的Y坐标)
+    // context.fillText('永',canvas.width/2,canvas.height/2);
+
+    // 描边文字
+    // context.strokeText(文字的内容,文字左下角的X坐标，文字左下角的Y坐标)
+    context.strokeText('永',canvas.width/2,canvas.height/2); //粗是因为两条变描起来 
+  </script>
+</body>
+</html>

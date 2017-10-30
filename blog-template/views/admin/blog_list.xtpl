@@ -1,0 +1,71 @@
+{{extend ('./layout')}}
+{{#block ('main')}}
+    
+            
+            <!-- 文章列表 -->
+            <div class="body blog">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">文章管理</a></li>
+                    <li class="active">文章列表</li>
+                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success btn-sm">搜索</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td width="60" align="center">1</td>
+                                <td align="left">
+                                    <a class="title" href="javascript:;">JS the Hardcore: 执行上下文(Execution Context)</a>
+                                </td>
+                                <td width="120" align="center">
+                                    <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-warning btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="60" align="center">2</td>
+                                <td align="left">
+                                    <a class="title" href="javascript:;">中国第三届CSS开发者大会即将召开</a>
+                                </td>
+                                <td width="120" align="center">
+                                    <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-warning btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="60" align="center">3</td>
+                                <td align="left">
+                                    <a class="title" href="javascript:;">weui.js发布</a>
+                                </td>
+                                <td width="120" align="center">
+                                    <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-warning btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="60" align="center">4</td>
+                                <td align="left">
+                                    <a class="title" href="javascript:;">中国第三届CSS开发者大会即将召开</a>
+                                </td>
+                                <td width="120" align="center">
+                                    <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-warning btn-xs">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+      
+{{/block}}
+  

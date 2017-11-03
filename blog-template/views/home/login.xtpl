@@ -1,9 +1,9 @@
-{{extend ('./layout')}}
-{{#block ('main')}}
-        
-            <!-- 登录 -->
+
+{{extend ('./tout')}}
+{{#block ('body')}}
+        <div class="body">
             <div class="login">
-                
+                <div class="wrapper">
                     <div class="contact">
                         <p>有什么问题可以点击下方联系</p>
                         <img src="/home/images/email.png" alt="">
@@ -25,7 +25,7 @@
                             </li>
                         </ul>
                     </form>
-                
+                </div>
             </div>
-        
+        </div>
 {{/block}}       

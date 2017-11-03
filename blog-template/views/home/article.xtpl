@@ -1,8 +1,6 @@
 {{extend ('./layout')}}
-{{#block ('main')}}
-      
-            
-                
+{{#block ('body')}}
+                <section class="main">
                     <div class="article">
                         <h2 class="title">One Day</h2>
                         <p>这几年，前端技术发展很快，每年都有新的技术名词流行，ReactJS、Angular 2、VUE、微信小程序。。。而我重新学习了 swift ，是的，重新学习，之前读过《swift 1.0 从入门到放弃》。</p>
@@ -17,7 +15,7 @@
                     <!-- 作者 -->
                     <div class="author">
                         <div class="avatar">
-                            <a href="./center.html">
+                            <a href="center">
                                 <img src="/home/uploads/avatar/monkey.png" alt="">
                             </a>
                         </div>
@@ -25,7 +23,7 @@
                             <!-- 个人资料 -->
                             <div class="meta">
                                 <h4 class="name">
-                                    <a href="./center.html">老布头儿</a>
+                                    <a href="center">老布头儿</a>
                                 </h4>
                                 <p class="intro">爱好前端设计与开发，崇尚一目了然的设计。现居深圳/广州，就职于腾讯微信设计团队。</p>
                                 <div class="extra">
@@ -47,5 +45,5 @@
                             </div>
                         </div>
                     </div>
-                
-{{/block}}            
+                </section>
+{{/block}}           

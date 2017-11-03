@@ -15,14 +15,14 @@
             <div class="wrapper">
                 <!-- 导航 -->
                 <nav>
-                    <a href="./index.html">Home</a>
-                    <a href="./about.html">关于我们</a>
-                    <a href="./join.html">传智招聘</a>
+                    <a href="/">Home</a>
+                    <a href="about">关于我们</a>
+                    <a href="join">传智招聘</a>
                 </nav>
                 <!-- 注册/登录 -->
                 <div class="extra">
-                    <a href="./register.html">注册</a>
-                    <a href="./login.html">登录</a>
+                    <a href="register">注册</a>
+                    <a href="login">登录</a>
                 </div>
             </div>
         </header>
@@ -44,34 +44,34 @@
                         <header>热门文章</header>
                         <ul>
                             <li>
-                                <a href="./article.html">WeUI 发布——微信官方UI库</a>
+                                <a href="article">WeUI 发布——微信官方UI库</a>
                             </li>
                             <li>
-                                <a href="./article.html">Zen Coding: 一种快速编写HTML/CSS代码的方法</a>
+                                <a href="article">Zen Coding: 一种快速编写HTML/CSS代码的方法</a>
                             </li>
                             <li>
-                                <a href="./article.html">QQ浏览器X5内核问题汇总</a>
+                                <a href="article">QQ浏览器X5内核问题汇总</a>
                             </li>
                             <li>
-                                <a href="./article.html">一些必不可少的Sublime Text 2插件</a>
+                                <a href="article">一些必不可少的Sublime Text 2插件</a>
                             </li>
                             <li>
-                                <a href="./article.html">高性能 CSS3 动画</a>
+                                <a href="article">高性能 CSS3 动画</a>
                             </li>
                             <li>
-                                <a href="./article.html">[Task Master] gulp-lint</a>
+                                <a href="article">[Task Master] gulp-lint</a>
                             </li>
                             <li>
-                                <a href="./article.html">前端观察又改版</a>
+                                <a href="article">前端观察又改版</a>
                             </li>
                             <li>
-                                <a href="./article.html">HTML5+CSS3 loading 效果收集</a>
+                                <a href="article">HTML5+CSS3 loading 效果收集</a>
                             </li>
                             <li>
-                                <a href="./article.html">meta标签常用属性整理</a>
+                                <a href="article">meta标签常用属性整理</a>
                             </li>
                             <li>
-                                <a href="./article.html">HTML5 中 div section article 的区别</a>
+                                <a href="article">HTML5 中 div section article 的区别</a>
                             </li>
                         </ul>
                     </div>
@@ -80,35 +80,33 @@
                         <header>热门博主</header>
                         <ul>
                             <li>
-                                <a href="./center.html">
-                                    <img src="/home/uploads/avatar/botue.jpg" alt="">
+                                <a href="center">
+                                    <img src="center" alt="">
                                     <span>老布头儿</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="./center.html">
+                                <a href="center">
                                     <img src="/home/uploads/avatar/monkey.png" alt="">
                                     <span>程序猿</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="./center.html">
+                                <a href="center">
                                     <img src="/home/uploads/avatar/botue.jpg" alt="">
                                     <span>老布头儿</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="./center.html">
-                                    <img src="/home/uploads/avatar/monkey.png" alt="">
+                                <a href="center">
+                                    <img src="home/uploads/avatar/monkey.png" alt="">
                                     <span>程序猿</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </aside>
-                <section class="main">
-                     {{{block ('main')}}}<!-- 方便别人查找 -->
-                </section>
+                {{{block('body')}}}
             </div>
         </div>
         <!-- 底部 -->

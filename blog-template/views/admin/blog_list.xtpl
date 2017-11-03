@@ -1,7 +1,5 @@
 {{extend ('./layout')}}
-{{#block ('main')}}
-    
-            
+{{#block ('body')}}
             <!-- 文章列表 -->
             <div class="body blog">
                 <!-- 面包屑 -->
@@ -66,6 +64,5 @@
                     </table>
                 </div>
             </div>
-      
+       
 {{/block}}
-  

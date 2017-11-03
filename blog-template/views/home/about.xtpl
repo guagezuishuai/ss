@@ -1,6 +1,6 @@
 {{extend ('./layout')}}
-{{#block ('main')}}
-      
+{{#block ('body')}}              
+                <section class="main">
                     <div class="article">
                         <h2 class="title">关于我们</h2>
                         <p>首先非常感谢你来到这里，你的光临是本站的荣幸。</p>
@@ -11,6 +11,5 @@
                         <p>谢谢！</p>
                         <p>同时感谢Ghost提供如此优秀的程序。</p>
                     </div>
-               
- {{/block}}       
-       
+                </section>
+{{/block}}           

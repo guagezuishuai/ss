@@ -1,6 +1,5 @@
 {{extend ('./layout')}}
-{{#block ('main')}}   
-            
+{{#block ('body')}}
             <!-- 个人资料 -->
             <div class="body center">
                 <div class="settings">
@@ -59,12 +58,10 @@
                         <div class="form-group">
                             <div class="col-xs-8">
                                 <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
-                                <a href="./repass.html" class="btn btn-link btn-sm pull-right">更改密码？</a>
+                                <a href="repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        
-{{/block}}
-    
+{{/block}}      

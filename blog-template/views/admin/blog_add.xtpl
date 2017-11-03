@@ -1,9 +1,6 @@
 {{extend ('./layout')}}
-{{#block ('main')}}
-    <!-- 主体 -->
-    
-       
-           
+{{#block ('body')}}
+            
             <!-- 写文章 -->
             <div class="body blog">
                 <!-- 面包屑 -->
@@ -39,11 +36,9 @@
                     </form>
                 </div>
             </div>
-     
-    
-{{/block}}
-{{#block ('script')}}   
-    <script src="/admin/assets/ckeditor/ckeditor.js"></script>
+{{/block}}      
+{{#block ('script')}}
+    <script src="./assets/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('ckeditor', {
             toolbarGroups: [
@@ -57,8 +52,5 @@
         });
     </script>
 {{/block}}
-
-
-
-
-
+</body>
+</html>

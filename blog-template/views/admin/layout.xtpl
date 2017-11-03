@@ -24,7 +24,7 @@
         <div class="navs">
             <ul class="list-unstyled">
                 <li>
-                    <a href="./index.html" class="active">
+                    <a href="index" class="active">
                         <i class="fa fa-dashboard"></i>
                         仪表盘
                     </a>
@@ -37,12 +37,12 @@
                     </a>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="./blog_add.html">
+                            <a href="admin">
                                  写文章
                             </a>
                         </li>
                         <li>
-                            <a href="./blog_list.html">
+                            <a href="blog_list">
                                 我的文章
                             </a>
                         </li>
@@ -64,13 +64,13 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="./settings.html">
+                            <a href="/admin/settings">
                                 <i class="fa fa-user"></i>
                                 个人中心
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="/admin/logout">
                                 <i class="fa fa-sign-out"></i>
                                 退出
                             </a>
@@ -83,15 +83,13 @@
                     </ul>
                 </nav>          
             </div>
-           {{{block ('main')}}}
+            {{{block ('body')}}}
         </div>
     </div>
-    
     <script src="/admin/assets/jquery/jquery.min.js"></script>
     <script src="/admin/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/admin/assets/nprogress/nprogress.js"></script>
     <script src="/admin/libs/common.js"></script>
-    
-     {{{block ('script')}}}
+    {{{block ('script')}}}
 </body>
 </html>

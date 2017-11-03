@@ -1,46 +1,48 @@
 {{extend ('./layout')}}
-{{#block ('main')}}    
-            <!-- 个人资料 -->
-            <div class="body index">
-                <div class="profile">
-                    <div class="row survey">
-                        <div class="col-xs-3">
-                            <div class="cell money">
-                                <i class="fa fa-money"></i>
-                                <span>广告收入</span>
-                                <h5>￥11.11</h5>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="cell th">
-                                <i class="fa fa-th"></i>
-                                <span>文章数量</span>
-                                <h5>12</h5>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="cell user">
-                                <i class="fa fa-user"></i>
-                                <span>用户数量</span>
-                                <h5>236</h5>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="cell eye">
-                                <i class="fa fa-eye"></i>
-                                <span>浏览量</span>
-                                <h5>22435</h5>
-                            </div>
-                        </div>
+
+{{#block ('body')}}
+    <!-- 个人资料 -->
+    <div class="body index">
+        <div class="profile">
+            <div class="row survey">
+                <div class="col-xs-3">
+                    <div class="cell money">
+                        <i class="fa fa-money"></i>
+                        <span>广告收入</span>
+                        <h5>￥11.11</h5>
                     </div>
-                    <div class="chart">
-                        <div id="main" style="width: 600px;height:400px;"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="cell th">
+                        <i class="fa fa-th"></i>
+                        <span>文章数量</span>
+                        <h5>12</h5>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="cell user">
+                        <i class="fa fa-user"></i>
+                        <span>用户数量</span>
+                        <h5>236</h5>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="cell eye">
+                        <i class="fa fa-eye"></i>
+                        <span>浏览量</span>
+                        <h5>22435</h5>
                     </div>
                 </div>
             </div>
-{{/block}}  
-{{#block ('script')}}  
-	<script src="/admin/assets/echarts/echarts.min.js"></script> 
+            <div class="chart">
+                <div id="main" style="width: 600px;height:400px;"></div>
+            </div>
+        </div>
+    </div>
+{{/block}}
+
+{{#block ('script')}}
+    <script src="./assets/echarts/echarts.min.js"></script>
     <script>
 
         // 基于准备好的dom，初始化echarts实例
@@ -68,6 +70,5 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-
-    </script>
+    </script>}
 {{/block}}
